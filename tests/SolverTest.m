@@ -1,5 +1,11 @@
 classdef SolverTest < matlab.unittest.TestCase
 
+    methods (TestClassSetup)
+        function addSrcToPath(testCase)
+            testCase.applyFixture(matlab.unittest.fixtures.PathFixture("src"));
+        end
+    end
+
     methods(Test)
         function realSolution(testCase)
             actSolution = quadraticSolver(1,-3,2);
